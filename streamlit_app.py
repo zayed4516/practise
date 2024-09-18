@@ -37,5 +37,9 @@ with col4:
 with col5:  
   fig2=px.histogram(df,x=x_col,color=color)
   st.plotly_chart(fig2)
-
+tap1,tap2=st.tabs(2)
+with tap1:
+  st.write('tap1')
+with tap2:
+  st.write('tap2')
 
