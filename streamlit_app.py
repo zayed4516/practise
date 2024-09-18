@@ -7,6 +7,7 @@ if btn:
     st.write(f'Welcome {name}')
 
 #app 1
+st.sidebar.title('Sidebar')
 st.header("calculate Area")
 choose =st.selectbox('Choose the shape',['circle','rectangle'])
 if choose=='circle':
