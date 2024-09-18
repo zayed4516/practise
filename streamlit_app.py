@@ -29,11 +29,13 @@ with col2:
   y_col = st.selectbox('choose y column',num_col)
 with col3:
   color = st.selectbox('choose color',df.columns.to_list())
+col4,col5=st.columns(2)
 
-
-fig = px.scatter(df,x=x_col,y=y_col,color=color)
-st.plotly_chart(fig)
-fig2=px.histogram(df,x=x_col,color=color)
-st.plotly_chart(fig2)
+with col4:
+   fig = px.scatter(df,x=x_col,y=y_col,color=color)
+   st.plotly_chart(fig)
+with col5:  
+  fig2=px.histogram(df,x=x_col,color=color)
+  st.plotly_chart(fig2)
 
 
