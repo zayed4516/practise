@@ -25,6 +25,6 @@ if file is not None:
         st.write(df.loc[:num_row, names_col])
     else:
         st.write(df.head(num_row))
-    else:
-        st.write("Please upload a CSV file.")
+else:
+    st.write("Please upload a CSV file.")
 
