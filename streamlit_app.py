@@ -1,13 +1,30 @@
 import streamlit as st
 import pandas as pd
-st.header('file upload')
-file=st.file_uploader('upload dataset',type=['csv'])
+
+# عنوان التطبيق
+st.header('File Upload')
+
+# تحميل الملف
+file = st.file_uploader('Upload dataset', type=['csv'])
+
+# تحقق مما إذا تم تحميل ملف
 if file is not None:
-  df=pd.read_csv('housing.csv')
-  st.write(df)
-num_row=st.slider('choose num rows',min_value=1,max_value=len(df))
-names_col=st.multiselect('choose columns',df.columns.to_list())
-if names_col:
-  st.write(df[:num_row][names_col])
+    # قراءة البيانات من الملف
+    df = pd.read_csv(file)
+    # عرض البيانات
+    st.write(df)
+
+    # إضافة شريط لاختيار عدد الصفوف
+    num_row = st.slider('Choose num rows', min_value=1, max_value=len(df))
+
+    # إضافة اختيار للأعمدة
+    names_col = st.multiselect('Choose columns', df.columns.to_list())
+
+    # عرض البيانات بناءً على الأعمدة المختارة
+    if names_col:
+        st.write(df.loc[:num_row, names_col])
+    else:
+        st.write(df.head(num_row))
 else:
-  st.write(df[:num_row]) 
+    st.write("Please upload a CSV file.")
+
