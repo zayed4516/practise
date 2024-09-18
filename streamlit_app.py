@@ -1,6 +1,9 @@
+
 import streamlit as st
-import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
 import plotly.express as px
+import pandas as pd
 
 st.header('file upload app 2')
 file = st.file_uploader('upload dataset',type=['csv'])
