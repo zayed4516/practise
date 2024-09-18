@@ -37,9 +37,17 @@ with col4:
 with col5:  
   fig2=px.histogram(df,x=x_col,color=color)
   st.plotly_chart(fig2)
-tap1,tap2=st.tabs(2)
-with tap1:
-  st.write('tap1')
-with tap2:
-  st.write('tap2')
+import streamlit as st
+
+# إنشاء تبويبات
+tab1, tab2 = st.tabs(["Tab 1", "Tab 2"])
+
+# محتوى التبويب الأول
+with tab1:
+    st.write('This is Tab 1')
+
+# محتوى التبويب الثاني
+with tab2:
+    st.write('This is Tab 2')
+
 
