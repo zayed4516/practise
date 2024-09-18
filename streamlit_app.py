@@ -1,30 +1,33 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
-# عنوان التطبيق
-st.header('File Upload')
-
-# تحميل الملف
-file = st.file_uploader('Upload dataset', type=['csv'])
-
-# تحقق مما إذا تم تحميل ملف
+st.header('file upload app 2')
+file = st.file_uploader('upload dataset',type=['csv'])
 if file is not None:
-    # قراءة البيانات من الملف
-    df = pd.read_csv(file)
-    # عرض البيانات
-    st.write(df)
+  df = pd.read_csv(file)
+  st.write(df)
 
-    # إضافة شريط لاختيار عدد الصفوف
-    num_row = st.slider('Choose num rows', min_value=1, max_value=len(df))
+num_row = st.slider('choose num rows',min_value=1,max_value=len(df),step=1)
+names_column = st.multiselect('choose names of columns',df.columns.to_list())
+st.write(df[:num_row][names_column])
 
-    # إضافة اختيار للأعمدة
-    names_col = st.multiselect('Choose columns', df.columns.to_list())
-
-    # عرض البيانات بناءً على الأعمدة المختارة
-    if names_col:
-        st.write(df.loc[:num_row, names_col])
-    else:
-        st.write(df.head(num_row))
+if names_column:
+  st.write(df[:num_row][names_column])
 else:
-    st.write("Please upload a CSV file.")
+  st.write(df[:num_row])
+
+num_col = df.select_dtypes(include='number').columns.to_list()
+
+col1,col2,col3 = st.columns(3)
+with col1:
+ x_col = st.selectbox('choose x column',num_col)
+with col2:
+  y_col = st.selectbox('choose y column',num_col)
+with col3:
+  color = st.selectbox('choose color',df.columns.to_list())
+
+
+fig = px.scatter(df,x=x_col,y=y_col,color=color)
+st.plotly_chart(fig)
 
