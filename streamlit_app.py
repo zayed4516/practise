@@ -16,4 +16,4 @@ elif choose=='rectangle':
   area=h*w
 btn=st.button('calculate')
 if btn:
-  st.write('the area:{area}')
+  st.write(f'the area:{area}')
