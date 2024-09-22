@@ -14,7 +14,7 @@ with st.sidebar:
     area=h*w
   btn=st.button("Calculate")
   if btn:
-     with st.spinner('Calculating...')
+     with st.spinner('Calculating...'):
       time.sleep(2)
     st.write(f"the area{area}")    
     
