@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 st.sidebar.title('Sidebar')
 st.header("Calculate Area")
 
