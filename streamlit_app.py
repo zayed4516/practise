@@ -13,4 +13,4 @@ if columns_choose:
 else:
   st.write(df[:n_rows])
 fig=px.scatter(df,x='OrderID',y='OrderDetailID')
-st.plotly_chart(fig1)
+st.plotly_chart(fig)
