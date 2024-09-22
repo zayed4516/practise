@@ -12,6 +12,8 @@ with st.sidebar:
     w=st.number_input("Enter the width",min_value=1,max_value=50)
     area=h*w
   btn=st.button("Calculate")
-if btn:
-  st.write(f"the area{area}")    
+  if btn:
+    with st.spinner('Calculating...')
+      time.sleep(2)
+    st.write(f"the area{area}")    
     
