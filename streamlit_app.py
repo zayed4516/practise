@@ -35,7 +35,8 @@ with tab2:
   st.write('hello zayed')
 
 st.header("session state")
-st.session_state.lists=[]
+if 'lists' not in st.session_state:
+ st.session_state.lists=[]
 user_name=st.text_input("Enter the list")
 
 if st.button("Enter"):
