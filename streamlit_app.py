@@ -33,3 +33,11 @@ with tab1:
   st.write('hello Mohamed')
 with tab2:
   st.write('hello zayed')
+
+st.header("session state")
+lists=[]
+user_name=st.text_input("Enter the list")
+
+if st.button("Enter"):
+  lists.append(user_name)
+st.write(lists)  
