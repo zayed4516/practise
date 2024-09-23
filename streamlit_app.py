@@ -35,10 +35,10 @@ with tab2:
   st.write('hello zayed')
 
 st.header("session state")
-lists=[]
+st.session_state.lists=[]
 user_name=st.text_input("Enter the list")
 
 if st.button("Enter"):
-  lists.append(user_name)
+  st.session_state.lists.append(user_name)
   user_name=""
 st.write(lists)  
