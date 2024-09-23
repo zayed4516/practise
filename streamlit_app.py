@@ -18,11 +18,11 @@ st.plotly_chart(fig)
 num_col=df.select_dtypes(include='number').columns.to_list()
 col1,col2,col3=st.columns(3)
 with col1:
-x_column=st.selectbox('select the x-axis columns',num_col)
+  x_column=st.selectbox('select the x-axis columns',num_col)
 with col2:
-y_column=st.selectbox('select the y-axis columns',num_col)
+  y_column=st.selectbox('select the y-axis columns',num_col)
 with col3:
-color=st.selectbox('select color',df.columns.to_list())
+  color=st.selectbox('select color',df.columns.to_list())
 
 fig1=px.scatter(df,x=x_column,y=y_column,color=color)
 st.plotly_chart(fig1)
