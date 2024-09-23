@@ -26,3 +26,10 @@ with col3:
 
 fig1=px.scatter(df,x=x_column,y=y_column,color=color)
 st.plotly_chart(fig1)
+
+tab1,tab2=st.tabs(['name1',name2])
+
+with tab1:
+  st.write('hello Mohamed')
+with tab2:
+  st.write('hello zayed')
