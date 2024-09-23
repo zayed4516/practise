@@ -41,4 +41,4 @@ user_name=st.text_input("Enter the list")
 if st.button("Enter"):
   st.session_state.lists.append(user_name)
   user_name=""
-st.write(lists)  
+st.write(st.session_state.lists)  
