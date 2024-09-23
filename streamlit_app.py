@@ -14,3 +14,11 @@ else:
   st.write(df[:n_rows])
 fig=px.scatter(df,x='OrderID',y='OrderDetailID')
 st.plotly_chart(fig)
+
+num_col=df.select_dtypes(include='number').columns.to_list()
+x_column=st.selectbox('select the x-axis columns',num_col)
+y_column=st.selectbox('select the y-axis columns',num_col)
+color=st.selectbox('select color',df.columns.to_list())
+
+fig1=px.scatter(df,x=x_column,y=y_column,color=color)
+st.plotly_chart(fig1)
